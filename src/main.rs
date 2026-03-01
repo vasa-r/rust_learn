@@ -31,6 +31,10 @@ fn main() {
 
     let signed: i32 = -32;
 
+    let b = signed;
+
+    print!("{signed} {b}");
+
     println!("{}", signed);
 
     // -----------------------------------------boolean-------------------------------------------------
@@ -56,6 +60,22 @@ fn main() {
 
     num = 4;
     println!("Updated value: {}", num);
+
+    // ----------------------------------------borrowing-------------------------------------
+
+    /*
+    You can have multiple immutable references
+    OR one mutable reference
+    But not both at the same time
+     */
+
+    let mut owner = String::from("Vasa");
+    let borrower1 = &owner;
+    println!("{borrower1}"); // works
+    let borrower2: &mut String = &mut owner;
+    borrower2.push_str(" Raman");
+
+    // println!("{borrower1}"); wont work
 }
 
 fn sum(a: u32, b: u32) -> u32 {
