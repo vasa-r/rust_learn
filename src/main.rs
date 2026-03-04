@@ -1,14 +1,15 @@
 mod jargons;
 use chrono::{DateTime, Local};
 use jargons::{normal_fn, print_number};
+mod iterators_test;
 
 fn main() {
     // println!("hi") // macro
-    println!("hi");
+    // println!("hi");
 
     let ans: u32 = sum(14382, 2);
 
-    println!("{}", ans);
+    // println!("{}", ans);
 
     // -------------------------------------dynamic args - string-----------------------------------------------------
 
@@ -20,9 +21,9 @@ fn main() {
 
     let formatted_date = time_now.format("%Y/%m/%d");
 
-    println!("{}", formatted_date);
+    // println!("{}", formatted_date);
 
-    println!("{}", time_now);
+    // println!("{}", time_now);
 
     // -----------------------------------------signed & unsigned-------------------------------------------------
 
@@ -33,13 +34,13 @@ fn main() {
 
     let b = signed;
 
-    print!("{signed} {b}");
+    // print!("{signed} {b}");
 
-    println!("{}", signed);
+    // println!("{}", signed);
 
     // -----------------------------------------boolean-------------------------------------------------
 
-    println!("{}", is_eligible(32));
+    // println!("{}", is_eligible(32));
 
     // ----------------------------------------macro from jargons module--------------------------------
 
@@ -56,10 +57,10 @@ fn main() {
     // num = 4; this wont compile. by default all the data are immutable in rust
 
     let mut num: u32 = 10;
-    println!("Initial value: {}", num); // ✅ Now `10` is used before overwriting
+    // println!("Initial value: {}", num); // ✅ Now `10` is used before overwriting
 
     num = 4;
-    println!("Updated value: {}", num);
+    // println!("Updated value: {}", num);
 
     // ----------------------------------------borrowing-------------------------------------
 
@@ -71,11 +72,15 @@ fn main() {
 
     let mut owner = String::from("Vasa");
     let borrower1 = &owner;
-    println!("{borrower1}"); // works
+    // println!("{borrower1}"); // works
     let borrower2: &mut String = &mut owner;
     borrower2.push_str(" Raman");
 
     // println!("{borrower1}"); wont work
+
+    // ----------------------------------------iterators-------------------------------------
+
+    iterators_test::test_iterators();
 }
 
 fn sum(a: u32, b: u32) -> u32 {
