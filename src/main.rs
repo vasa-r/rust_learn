@@ -1,7 +1,9 @@
 mod jargons;
 use chrono::{DateTime, Local};
 use jargons::{normal_fn, print_number};
+mod chrono_test;
 mod iterators_test;
+mod time_test;
 
 fn main() {
     // println!("hi") // macro
@@ -80,7 +82,12 @@ fn main() {
 
     // ----------------------------------------iterators-------------------------------------
 
-    iterators_test::test_iterators();
+    // iterators_test::test_iterators();
+
+    // ----------------------------------------time && chrono-------------------------------------
+
+    // time_test::test_time();
+    chrono_test::chrono_test();
 }
 
 fn sum(a: u32, b: u32) -> u32 {
