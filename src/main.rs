@@ -2,7 +2,9 @@ mod jargons;
 use chrono::{DateTime, Local};
 use jargons::{normal_fn, print_number};
 mod chrono_test;
+mod drop_trait;
 mod iterators_test;
+mod thread_scope;
 mod thread_test;
 mod time_test;
 
@@ -91,7 +93,9 @@ fn main() {
     // chrono_test::chrono_test();
 
     // ----------------------------------------threads-------------------------------------
-    thread_test::thread_test();
+    // thread_test::thread_test();
+    // thread_scope::thread_scope();
+    drop_trait::drop_trait();
 }
 
 fn sum(a: u32, b: u32) -> u32 {
