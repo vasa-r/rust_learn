@@ -41,6 +41,8 @@ pub fn thread_test() {
 
     // thread::spawn(move || println!("{}", message));
 
+    println!("Before threads spawning");
+
     let mut handles: Vec<thread::JoinHandle<u8>> = vec![];
 
     for i in 1..=5 {
@@ -51,7 +53,7 @@ pub fn thread_test() {
         handles.push(handle);
     }
 
-    // println!("{:?}", handles);
+    println!("{:?}", handles);
 
     for handle in handles {
         println!("{:?}", handle.join().unwrap());

@@ -5,6 +5,7 @@ mod chrono_test;
 mod drop_trait;
 mod iterators_test;
 mod smart_pointers;
+mod thread_pool;
 mod thread_scope;
 mod thread_test;
 mod time_test;
@@ -97,7 +98,8 @@ fn main() {
     // thread_test::thread_test();
     // thread_scope::thread_scope();
     // drop_trait::drop_trait();
-    smart_pointers::smart_poniters();
+    // smart_pointers::smart_poniters();
+    thread_pool::thread_pool_test();
 }
 
 fn sum(a: u32, b: u32) -> u32 {

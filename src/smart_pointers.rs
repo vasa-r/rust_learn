@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::sync::Mutex;
 use std::thread;
 use std::{rc::Rc, sync::Arc};
@@ -57,5 +58,25 @@ pub fn smart_poniters() {
     for h in handles1 {
         h.join().unwrap();
     }
-    println!("result {}", *counter.lock().unwrap());
+    println!("result {:?}", *counter.lock().unwrap());
+
+    let cache = Arc::new(Mutex::new(HashMap::new()));
+
+    let mut handles2 = vec![];
+
+    for i in 1..=5 {
+        let cache_clone = Arc::clone(&cache);
+        let handle = thread::spawn(move || {
+            let mut map = cache_clone.lock().unwrap();
+            map.insert(i, i * 10);
+        });
+
+        handles2.push(handle);
+    }
+
+    for h in handles2 {
+        h.join().unwrap();
+    }
+
+    println!("cache result {:?}", *cache.lock().unwrap());
 }
